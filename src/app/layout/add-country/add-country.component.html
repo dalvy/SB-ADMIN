@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-content">
+        <span class= " card-title">
+             <h4 class="card-title">Add Country</h4>
+        </span>
+
+        <form (ngSubmit)="onSubmit()">
+           <div class="row">
+               <div class="col-sm">
+                   <input type="text" placeholder="ID" name="id" [(ngModel)]="countryArray.countrY_ID" disabled="true" class="form-control">
+               </div>              
+
+              <div class="col-sm">
+                    <input type="text" placeholder="Add code" name="code" [(ngModel)]="countryArray.countrY_CODE" class="form-control">
+              </div>
+              <div class="col-sm">
+                    <input type="text" placeholder="Add name" name="name" [(ngModel)]="countryArray.countrY_NAME" class="form-control">
+              </div>
+          </div>
+          <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>

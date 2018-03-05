@@ -1,0 +1,44 @@
+
+<div [@routerTransition]>
+    <app-page-header [heading]="'Country'" [icon]="'fa-table'"></app-page-header>
+    <app-add-country></app-add-country>
+    
+    <div class="container">
+  
+      <div *ngIf="countryArray?.length > 0; else noCountrys">
+        <ul *ngFor="let country of countryArray" class="collection">
+          <li class="collection-item">
+            <strong>                 
+             {{country.countrY_CODE}}
+              </strong>  
+            :{{country.countrY_NAME}}
+            <strong class="secondary-content" >
+                <a (click)="deleteCountry($event, country)"><i class="fa fa-trash"></i></a>
+                
+                <a  (click)="editCountry($event, country)"><i class="fa fa-pencil"></i></a>
+
+                <div *ngIf="editState && countryEditArray.countrY_ID == country.countrY_ID">
+                    <form (ngSubmit)="updateCountry(country)">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="code" placeholder="Edit code" [(ngModel)]="country.countrY_CODE">
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="name" placeholder="Edit name" [(ngModel)]="country.countrY_NAME">
+                            </div>
+                            <input type="submit" value="update" class="btn">
+                        </div>
+                    </form>
+
+                </div>
+
+            </strong>
+          </li>
+        </ul>
+      </div>
+
+      <ng-template #noCountrys>
+      <h5>there is not countrys yet.</h5>
+      </ng-template>
+    </div>
+</div>
